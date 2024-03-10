@@ -1,0 +1,46 @@
+import java.util.*;
+class guess{
+    private int g_no,r;
+    guess(int a){
+       g_no=a;
+    }
+    int guessed(){
+    int flag=0;
+    Random rand=new Random();
+    int r=rand.nextInt(100);
+    if(g_no==r){
+       System.out.println("the guessed number "+g_no+" is correct"); 
+       flag=1;
+       return flag;
+    }
+    else if(g_no>r){
+    System.out.println("the guessed number is too high and the random number is "+r);
+    return flag;
+    }
+    else if(g_no<r){
+        System.out.println("the guessed number is too small and the random number is : "+r); 
+        return flag;
+    }
+    else{
+        System.out.println("entered input is invalid");
+        return flag;
+    }
+    }
+    
+}
+class main{
+    public static void main(String[]args){
+       Scanner sc=new Scanner(System.in);
+       int i=1;
+       while(i<=10){
+       System.out.println("enter the number to be gussed range from 1 to 100: ");
+       int g=sc.nextInt();
+        guess obj=new guess(g);
+        if(obj.guessed()==1){
+            break;
+        }
+         System.out.println("You have "+(10-i)+" attempts to guess the number");
+        i++;
+       }
+    }
+}
