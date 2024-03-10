@@ -1,0 +1,99 @@
+import java.util.*;
+class Quiz{
+    Scanner sc=new Scanner(System.in);
+    int ans(int q,int op){
+      switch(q){
+          case 1:if(op==1){
+              return 1;
+          }
+          else{
+              return 0;
+          }
+          case 2:if(op==2){
+              return 1;
+          }
+          else{
+              return 0;
+          }
+
+           case 3:if(op==1){
+              return 1;
+          }
+          else{
+              return 0;
+          }
+           case 4:if(op==3){
+              return 1;
+          }
+          else{
+              return 0;
+          }
+
+           case 5:if(op==1){
+              return 1;
+          }
+          else{
+              return 0;
+          }
+
+      }
+      return 0;
+    }
+    int flag=0;
+    int ques(){
+        Random r=new Random();
+        int choice,u;
+        switch(u=r.nextInt(5)){
+            case 1:System.out.println("\n"+u+" Name the national animal of India \n 1.Tiger  2.cheetah 3.Lion");
+                   System.out.println("Enter the option 1/2/3");
+                choice=sc.nextInt();
+                return ans(1,choice);
+               
+            case 2:System.out.println("\n"+u+". Name the national bird of India \n 1.dove  2.peacock 3.crow");
+                   System.out.println("Enter the option 1/2/3");
+                choice=sc.nextInt();
+                return ans(2,choice);
+             
+            case 3:System.out.println("\n"+u+". Name the national game of India \n 1.hockey  2.cricket 3.football");
+                   System.out.println("Enter the option 1/2/3");
+                choice=sc.nextInt();
+                return ans(3,choice);
+                
+            case 4:System.out.println("\n"+u+". Who found computer \n 1.van de rossum  2.charlas darwin  3.charlas baabage");
+                   System.out.println("Enter the option 1/2/3");
+                choice=sc.nextInt();
+                return ans(4,choice);
+               
+            case 5:System.out.println("\n"+u+". name the founder of java \n 1.James Gosling  2.charlas 3.van de rossum");
+                   System.out.println("Enter the option 1/2/3");
+                choice=sc.nextInt();
+                return ans(5,choice);
+           
+        }
+        return 0;
+    }
+}
+class Main{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Total 5 questions \n if you want to start the quiz enter 1 else enter 0 to abort");
+        Quiz obj=new Quiz();
+        int c=sc.nextInt();
+        if(c==1){
+        int i=1,sum=0;
+        while(i<=5){
+            System.out.println("\n You have "+(5-i+1)+" questions to answer" );
+        sum=sum+obj.ques();
+        System.out.println("You have scored : "+sum);
+        i++;
+        }
+        System.out.println("\n ************Congrats Your Final Score is   "+sum+" ************");
+        }
+        else if(c==0){
+            System.out.println("Aborted");
+        }
+        else{
+            System.out.println("Invalid input"); 
+        }
+    }
+}
