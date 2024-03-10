@@ -1,0 +1,65 @@
+import java.util.*;
+class grade{
+    Scanner sc=new Scanner(System.in);
+    int a;
+    grade(int n){
+        this.a=n;
+    }
+    int arr[];
+    void set_marks(){
+    arr=new int[a];
+    for(int i=0;i<a;i++){
+        System.out.println("Enter the Subject "+(i+1)+" marks: ");
+        arr[i]=sc.nextInt();
+    }
+    }
+    String cal_grade(){
+        int sum=0;
+        float avg=0;
+        for(int k:arr){
+            sum+=k;
+        }
+        System.out.println("Total Marks obtained is : "+sum);
+        avg=sum/a;
+        System.out.println("Average Marks obtained is : "+avg);
+        if(avg>=90.0){
+            return ("Grade A+");
+        }
+        else if(avg<90.0 && avg>=80.0){
+            return ("Grade A");
+        }
+        else if(avg<80.0 && avg>=70.0){
+            return ("Grade B+");
+        }
+        else if(avg<70.0 && avg>=60.0){
+            return ("Grade B");
+        }
+        else if(avg<60.0 && avg>=50.0){
+            return ("Grade C+");
+        }
+        else if(avg<50.0 && avg>=40.0){
+            return ("Grade C");
+        }
+        else{
+            return ("Fail");
+        }
+    }
+    
+}
+class Main{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the no of subjects: ");
+        int a=sc.nextInt();
+        grade obj=new grade(a);
+        System.out.println("Enter 1 to enter the marks OR enter any key to cancel");
+        int choice=sc.nextInt();
+        if(choice==1){
+            obj.set_marks();
+            System.out.println("You Obtained "+obj.cal_grade());
+        }
+        else{
+            System.out.println("Aborted");
+        }
+    }
+}
